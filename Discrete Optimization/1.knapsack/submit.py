@@ -204,10 +204,10 @@ def get_source(source_file):
 
 try:
     pkg = __import__('solver')
-    if not hasattr(pkg, 'solve_it'):
-        print 'the solve_it() function was not found in solver.py'
+    if not hasattr(pkg, 'solveIt'):
+        print 'the solveIt() function was not found in solver.py'
         quit()
-    solve_it = pkg.solve_it
+    solveIt = pkg.solveIt
 except ImportError:
     print 'solver.py was not found in the python path.'
     quit()
@@ -226,9 +226,9 @@ def output(part):
 
     start = time.clock()
     try:
-        solution = solve_it(load_input_data(part.input_file))
+        solution = solveIt(load_input_data(part.input_file))
     except Exception, e:
-        print 'the solve_it(input_data) method from solver.py raised an exception'
+        print 'the solveIt(input_data) method from solver.py raised an exception'
         print 'try testing it with python ./solver.py before running this submission script'
         print 'exception message:'
         print e
