@@ -1,9 +1,18 @@
 setwd("C:/Users/Billy/SkyDrive/Documents/GitHub/MOOC-Submission/R Programming")
 
 #º¯Êý
-pollutantmean <- function(directory, pollutant, id = 1:332) {
-  id <- as.character(id)
-  filepath <- paste("C:/Users/Billy/SkyDrive/Documents/GitHub/MOOC-Submission/R Programming/data/specdata/",id,".csv", sep="")
+pollutantmean <- function(directory, pollutant, a = 1:332) {
+  for(i in id){
+    if(i>=0&i<10){
+      file <- paste("00",as.character(i),sep="")
+    }
+    else if(i>=10&i<100){
+      file <- paste("0",as.character(i),sep="")
+    }
+    else{
+      file <- as.character(i)
+  }
+  filepath <- paste("C:/Users/Billy/SkyDrive/Documents/GitHub/MOOC-Submission/R Programming/data/specdata/",file,".csv", sep="")
   pol.data <- read.csv(filepath)
   
   output <- mean(pol.data[,which(colnames(pol.data)==pollutant)],na.rm=TRUE)
@@ -18,3 +27,19 @@ mean(pol.data[,which(colnames(pol.data)==pollutant)],na.rm=TRUE)
 
 id <- "001"
 filepath <-paste("C:/Users/Billy/SkyDrive/Documents/GitHub/MOOC-Submission/R Programming/data/specdata/",id,".csv", sep="")
+
+#²¹È«id
+for(i in a){
+  if(i>=0&i<10){
+    file <- paste("00",as.character(i),sep="")
+    print(file)
+  }
+  else if(i>=10&i<100){
+    file <- paste("0",as.character(i),sep="")
+    print(file)
+  }
+  else{
+    file <- as.character(i)
+    print(file)
+  }
+}
