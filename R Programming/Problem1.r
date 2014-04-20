@@ -1,17 +1,8 @@
 setwd("C:/Users/Billy/SkyDrive/Documents/GitHub/MOOC-Submission/R Programming")
 
 #º¯Êý
-pollutantmean <- function(directory, pollutant, a = 1:332) {
-  for(i in id){
-    if(i>=0&i<10){
-      file <- paste("00",as.character(i),sep="")
-    }
-    else if(i>=10&i<100){
-      file <- paste("0",as.character(i),sep="")
-    }
-    else{
-      file <- as.character(i)
-  }
+pollutantmean <- function(directory, pollutant, id = 1:332) {
+  file <- sprintf('%03d',id)
   filepath <- paste("C:/Users/Billy/SkyDrive/Documents/GitHub/MOOC-Submission/R Programming/data/specdata/",file,".csv", sep="")
   pol.data <- read.csv(filepath)
   
